@@ -10,19 +10,17 @@ angular.module('myApp', [])
     		$scope.total = $scope.subtotal + $scope.tip;
     		$scope.count++;
     		$scope.tipTotal = $scope.tip + $scope.tipTotal;
-    		$scope.avgTip = $scope.tip / $scope.count;
+    		$scope.avgTip = $scope.tipTotal / $scope.count;
     	}
 
     	$scope.reset = function() {
-    		$scope.subtotal = angular.copy($scope.initial);
-    		$scope.tip = angular.copy($scope.initial);
-    		$scope.total = angular.copy($scope.initial);
-    		$scope.count = angular.copy($scope.initial)
-    		$scope.tipTotal = angular.copy($scope.initial);
-    		$scope.avgTip = angular.copy($scope.initial);
-    		$scope.base = '';
-    		$scope.tax = '';
-    		$scope.tipPerc = '';
+    		$scope.subtotal = $scope.initial;
+    		$scope.tip = $scope.initial;
+    		$scope.total = $scope.initial;
+    		$scope.count = $scope.initial;
+    		$scope.tipTotal = $scope.initial;
+    		$scope.avgTip = $scope.initial;
+    		$scope.resetForm();
     	} 
 
     	$scope.resetForm = function() {

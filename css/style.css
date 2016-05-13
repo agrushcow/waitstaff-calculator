@@ -1,59 +1,87 @@
 @media screen and (min-width: 320px) {
+	/*Global classes*/
 	* {
 		box-sizing:border-box;
 	}
-
 	#container {
-		border:2px solid black;
 		width:100%;
 	}
-
 	.title h1 {
 		text-align:center;
 		margin:0;
+		margin-top:1em;
 		padding:0.5em 0;
-		font-size:1.75em;
+		font-size:2.1em;
 	}
-
+	nav {
+		text-align:center;
+		margin:1em 0 2em 0;
+	}
+	nav a {
+		font-size:1.1em;
+		margin:0 0.5em;
+	}
+	nav span {
+		font-weight: bolder;
+	}
+	/*Classes for homepage*/
+	.home {
+		width:85%;
+		margin:0 auto;
+	}
+	.home p {
+		font-size:1.1em;
+	}
+	/*Classes for new meal and my earnings*/
 	.heading h3 {
-		border-top:1px solid black;
 		border-bottom:1px solid black;
 		margin:0;
+		font-size:1.35em;
 		padding:0.35em 0 0.35em 0.75em;
 	}
-
+	.block-one, .block-two {
+		border:1px solid black;
+		margin-top:2em;
+	}
+	.block-one label {
+		font-size:1.1em;
+	}
+	.block-two span, .block-three span {
+		font-size:1.15em;
+	}
+	.block-three {
+		border:1px solid black;
+	}
+	.details-container {
+		padding:1em 0;
+	}
 	.row {
 		box-sizing: border-box;
 		margin:0.5em 0;
 	}
-
 	.col-md {
 		width:40%;
 		height:1em;
 		display:inline-table;
 		text-align: right;
 	}
-
 	.col-sm {
 		width:10%;
 		height:1em;
 		display:inline-table;
 		text-align:center;
 	}
-
 	.col-mdsm {
 		width:35%;
 		height:1em;
 		display:inline-table;
 		text-align:right;
 	}
-
 	.col-mdlg {
 		width:47%;
 		height:1em;
 		display:inline-table;
 	}
-
 	#base {width:90%;}
 
 	#tax {width:25%;}
@@ -64,9 +92,23 @@
 		text-align:center;
 		margin:1em 0;
 	}
-
 	hr {
 		width:16em;
+	}	
+}
+
+@media screen and (min-width:450px) {
+	.title h1 {
+		font-size:2.4em;
+	}
+	nav a {
+		font-size:1.25em;
+	}
+	.home {
+		width:80%;
+	}
+	.home p {
+		font-size:1.25em;
 	}
 }
 
@@ -75,54 +117,24 @@
 		display:inline-table;
 		padding:1em;
 	}
-
 	.title h1 {
-		font-size:2em;
+		font-size:3em;
 	}
-
-	.block-one {
-		width:50%;
-		border:1px solid black;
-		display:inline-table;
-		float:left;
-		height:23.4em;
+	nav a {
+		font-size:1.45em;
 	}
-
-	.block-two {
-		width:45%;
-		border:1px solid black;
-		float:right;
-		display:inline-table;
-		margin-bottom:1.5em;
+	.home p {
+		font-size:1.35em;
 	}
-
-	.block-three {
-		width:45%;
-		border:1px solid black;
-		display:inline-table;
-		float:right;
-	}
-
-	.row {
-		margin:1em 0;
-	}
-
-	.added-padding {
-		padding-left:0.3em;
-	}
-
-	input[type="reset"] {
-		float:right;
-		margin-right:2em;
+	.block-one, .block-two, .block-three {
+		width:80%;
+		margin:0 auto;
+		margin-top:2em;
 	}
 }
 
 @media screen and (min-width:970px) {
-	.block-three {
-		height:11em;
-	}
-
-	.col-md {
-		width:32%;
+	.block-one, .block-two, .block-three {
+		width:65%;
 	}
 }
