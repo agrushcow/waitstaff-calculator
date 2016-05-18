@@ -7,143 +7,22 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
-<body ng-controller="MyCtrl">
+<body>
   <section id="container">
     <header class="title">
       <h1>Waitstaff Calculator</h1>
     </header>
-<!--
     <nav>
-      <a href="#">Home</a> <span>|</span>
-      <a href="#">New Meal</a> <span>|</span>
-      <a href="#">My Earnings</a>
-    </nav>
-    <div ng-view></div>
--->
+      <a href="#/">Home</a> <span>|</span>
+      <a href="#/new-meal">New Meal</a> <span>|</span>
+      <a href="#/my-earnings">My Earnings</a>
+    </nav> 
+    <div ng-view class="page" ng-class="{loading:isLoading}"></div>
+  </section>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular-animate.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular-route.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
-
-
-<body ng-controller="MyCtrl">
-  <section id="container">
-    <header class="title">
-      <h1>Waitstaff Calculator</h1>
-    </header>
-    <nav>
-      <a href="#">Home</a> <span>|</span>
-      <a href="#">New Meal</a> <span>|</span>
-      <a href="#">My Earnings</a>
-    </nav>
-    <section class="content">
-      <form name="values" ng-submit="submit()">
-        <div class="block-one">
-          <div class="heading">
-            <h3>Enter the Meal Details</h3>
-          </div>
-          <div class="row">
-            <div class="col-md">
-              <label>Base meal Price</label>
-            </div>
-            <div class="col-sm">
-              <span>$</span>
-            </div>
-            <div class="col-mdlg">
-              <input type="number" step="any" class="input" id="base" ng-model="base" required />
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md">
-              <label>Tax Rate</label>
-            </div>
-            <div class="col-sm">
-              <span>%</span>
-            </div>
-            <div class="col-mdlg">
-              <input type="number" step="any" class="input" id="tax" ng-model="tax" required />
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md">
-              <label>Tip Percentage</label>
-            </div>
-            <div class="col-sm">
-              <span>%</span>
-            </div>
-            <div class="col-mdlg">
-              <input type="number" step="any" class="input" id="tip" ng-model="tipPerc" required />
-            </div>
-          </div>
-          <div class="buttons">
-            <input type="submit">
-            <input type="button" ng-click="resetForm()" value="Reset">
-          </div>
-        </div>
-      </form>
-      <div class="block-two">
-        <div class="heading">
-          <h3>Customer Charges</h3>
-        </div>
-        <div class="row">
-          <div class="col-mdsm">
-            <span>Subtotal</span>
-          </div>
-          <div class="col-mdsm">
-            <span>{{subtotal || '0.00' | currency}}</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-mdsm">
-            <span>Tip</span>
-          </div>
-          <div class="col-mdsm">
-            <span>{{tip || '0.00' | currency}}</span>
-          </div>
-        </div>
-        <hr />
-        <div class="row">
-          <div class="col-mdsm">
-            <span>Total</span>
-          </div>
-          <div class="col-mdsm">
-            <span>{{total || '0.00' | currency}}</span>
-          </div>
-        </div>
-      </div>
-      <div class="block-three">
-        <div class="heading">
-          <h3>My earnings info</h3>
-        </div>
-        <div class="row">
-          <div class="col-mdsm">
-            <span>Tip Total:</span>
-          </div>
-          <div class="col-mdsm">
-            <span>{{tipTotal || '0.00' | currency}}</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-mdsm">
-            <span>Meal Count:</span>
-          </div>
-          <div class="col-mdsm">
-            <span>{{count}}</span>
-          </div>
-        </div>  
-        <div class="row">
-          <div class="col-mdsm">
-            <span class="added-padding">Average Tip Per Meal:</span>
-          </div>
-          <div class="col-mdsm">
-            <span>{{avgTip || '0.00' | currency}}</span>
-          </div>
-        </div>       
-      </div>
-    </section>
-  </section>
-      <div class="buttons">
-      	<input type="reset" ng-click="reset()">
-      </div>
 </body>
 </html>

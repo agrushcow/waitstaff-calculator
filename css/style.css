@@ -95,6 +95,35 @@
 	hr {
 		width:16em;
 	}	
+	.loading {
+	  position:relative;
+	  height:100%;
+	}
+	.loading:before {
+	  position:fixed;
+	  content:""; 
+	  left:0;
+	  bottom:0;
+	  right:0;
+	  top:0;
+	  background:rgba(255,255,255,0.9) no-repeat center center;
+	  background-image: url('../ajax-loader.gif');
+	}
+	.page {
+		height:470px;
+		overflow:hidden;
+	}
+	.ng-enter {
+		animation-direction: normal;
+		animation-fill-mode: forwards;
+		animation-name: slideInDown;
+		animation-duration: 3s;
+		animation-timing-function: ease-out;
+	}
+	@keyframes slideInDown {
+	    from    { height:0px; }
+	    to      { height:470px; }
+	}
 }
 
 @media screen and (min-width:450px) {

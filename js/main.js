@@ -1,32 +1,66 @@
-angular.module('myApp', [])
-    .controller('MyCtrl', function($scope) {
-    	$scope.initial = 0.00;
-    	$scope.count = 0;
-    	$scope.tipTotal = 0;
+"use strict"
+angular.module('myApp', ['ngRoute', 'ngAnimate'])
+    .config(['$routeProvider', function($routeProvider) {
+        $routeProvider.when('/', {
+            templateUrl : 'home.html',
+            controller: 'HomeCtrl'
+        }).when ('/new-meal', {
+            templateUrl : 'new-meal.html',
+            controller : 'MealCtrl'
+        }).when ('/my-earnings', {
+            templateUrl : 'my-earnings.html',
+            controller : 'EarningsCtrl'
+        }).otherwise ('/')
+    }])
+    .run(function($rootScope, $location, $timeout) {
+    $rootScope.$on('$routeChangeError', function() {
+        $location.path("/");
+    });
+    $rootScope.$on('$routeChangeStart', function() {
+        $rootScope.isLoading = true;
+    });
+    $rootScope.$on('$routeChangeSuccess', function() {
+      $timeout(function() {
+        $rootScope.isLoading = false;
+      }, 1500);
+    });
+})
+    .controller('HomeCtrl', function($rootScope) {
 
-    	$scope.submit = function() {
-    		$scope.subtotal = $scope.base * ($scope.tax / 100) + $scope.base;
-    		$scope.tip = $scope.subtotal * ($scope.tipPerc / 100); 
-    		$scope.total = $scope.subtotal + $scope.tip;
-    		$scope.count++;
-    		$scope.tipTotal = $scope.tip + $scope.tipTotal;
-    		$scope.avgTip = $scope.tipTotal / $scope.count;
-    	}
+    })
+    .controller('MealCtrl', function($rootScope) {
+        $rootScope.initial = 0.00;
+        $rootScope.count = 0;
+        $rootScope.tipTotal = 0;
+        $rootScope.base = "";
+        $rootScope.tax = "";
+        $rootScope.subtotal = "";
+        $rootScope.tipPerc = "";
 
-    	$scope.reset = function() {
-    		$scope.subtotal = $scope.initial;
-    		$scope.tip = $scope.initial;
-    		$scope.total = $scope.initial;
-    		$scope.count = $scope.initial;
-    		$scope.tipTotal = $scope.initial;
-    		$scope.avgTip = $scope.initial;
-    		$scope.resetForm();
-    	} 
+        $rootScope.submit = function() {
+            $rootScope.subtotal = $rootScope.base * ($rootScope.tax / 100) + $rootScope.base;
+            $rootScope.tip = $rootScope.subtotal * ($rootScope.tipPerc / 100); 
+            $rootScope.total = $rootScope.subtotal + $rootScope.tip;
+            $rootScope.count++;
+            $rootScope.tipTotal = $rootScope.tip + $rootScope.tipTotal;
+            $rootScope.avgTip = $rootScope.tipTotal / $rootScope.count;
+        }
 
-    	$scope.resetForm = function() {
-    		$scope.base = '';
-    		$scope.tax = '';
-    		$scope.tipPerc = '';
-    	}
-    	$scope.resetForm();
+        $rootScope.reset = function() {
+            $rootScope.subtotal = $rootScope.initial;
+            $rootScope.tip = $rootScope.initial;
+            $rootScope.total = $rootScope.initial;
+            $rootScope.count = $rootScope.initial;
+            $rootScope.tipTotal = $rootScope.initial;
+            $rootScope.avgTip = $rootScope.initial;
+            $rootScope.resetForm();
+        } 
+    })
+    .controller('EarningsCtrl', function($rootScope) {
+        $rootScope.resetForm = function() {
+            $rootScope.base = '';
+            $rootScope.tax = '';
+            $rootScope.tipPerc = '';
+        }
+        $rootScope.resetForm();
     });
